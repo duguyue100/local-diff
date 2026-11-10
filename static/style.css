@@ -1,0 +1,243 @@
+:root {
+  --border: #d0d7de;
+  --muted: #59636e;
+  --fg: #1f2328;
+  --header-bg: #f6f8fa;
+
+  /* diff2html defaults are a few GitHub versions old; use current colors. */
+  --d2h-bg-color: #ffffff;
+  --d2h-border-color: #d0d7de;
+  --d2h-dim-color: #59636e;
+  --d2h-line-border-color: #d8dee4;
+  --d2h-file-header-bg-color: #f6f8fa;
+  --d2h-file-header-border-color: #d0d7de;
+  --d2h-empty-placeholder-bg-color: #f6f8fa;
+  --d2h-empty-placeholder-border-color: #d0d7de;
+  --d2h-selected-color: #ddf4ff;
+  --d2h-ins-bg-color: #e6ffec;
+  --d2h-ins-border-color: #ccffd8;
+  --d2h-ins-highlight-bg-color: #abf2bc;
+  --d2h-ins-label-color: #1a7f37;
+  --d2h-del-bg-color: #ffebe9;
+  --d2h-del-border-color: #ffd7d5;
+  --d2h-del-highlight-bg-color: #ff818266;
+  --d2h-del-label-color: #cf222e;
+  --d2h-change-del-color: #fff8c5;
+  --d2h-change-ins-color: #dafbe1;
+  --d2h-info-bg-color: #f6f8fa;
+  --d2h-info-border-color: #d0d7de;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+}
+
+body {
+  background: #fff;
+  color: var(--fg);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+button,
+select {
+  font: inherit;
+}
+
+.app-header {
+  align-items: center;
+  background: var(--header-bg);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  justify-content: space-between;
+  padding: 12px 24px;
+}
+
+.repo-name {
+  align-items: center;
+  display: flex;
+  font-size: 16px;
+  gap: 8px;
+  min-width: 0;
+}
+
+.logo {
+  fill: #59636e;
+  flex: none;
+  height: 16px;
+  width: 16px;
+}
+
+.app-name {
+  color: var(--muted);
+}
+
+.slash {
+  color: var(--border);
+}
+
+#repo-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.badge {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 2em;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 400;
+  padding: 0 7px;
+  white-space: nowrap;
+}
+
+.toolbar {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.compare {
+  align-items: center;
+  display: flex;
+  font-size: 12px;
+  gap: 8px;
+}
+
+.compare label {
+  color: var(--muted);
+}
+
+select {
+  appearance: none;
+  background-color: #fff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%2359636e' viewBox='0 0 16 16'%3E%3Cpath d='m4.427 6.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 6H4.604a.25.25 0 0 0-.177.427Z'/%3E%3C/svg%3E");
+  background-position: right 6px center;
+  background-repeat: no-repeat;
+  background-size: 16px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--fg);
+  cursor: pointer;
+  max-width: 220px;
+  padding: 4px 26px 4px 10px;
+}
+
+select:hover {
+  background-color: #f3f4f6;
+}
+
+select:focus-visible,
+button:focus-visible {
+  outline: 2px solid #0969da;
+  outline-offset: -1px;
+}
+
+.arrow {
+  color: var(--muted);
+}
+
+.segmented {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  display: flex;
+  overflow: hidden;
+}
+
+.segmented button {
+  background: var(--header-bg);
+  border: 0;
+  color: #24292f;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 5px 12px;
+}
+
+.segmented button + button {
+  border-left: 1px solid var(--border);
+}
+
+.segmented button:hover {
+  background: #eef1f4;
+}
+
+.segmented button.active {
+  background: #fff;
+  color: #0969da;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1440px;
+  padding: 16px 24px 64px;
+}
+
+.summary {
+  align-items: center;
+  color: var(--muted);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.summary .stats {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.summary .add {
+  color: #1a7f37;
+}
+
+.summary .del {
+  color: #cf222e;
+}
+
+.flash {
+  background: #ffebe9;
+  border: 1px solid #ff8182;
+  border-radius: 6px;
+  color: #82071e;
+  margin-bottom: 16px;
+  padding: 12px 16px;
+}
+
+.empty {
+  border: 1px dashed var(--border);
+  border-radius: 6px;
+  color: var(--muted);
+  padding: 64px 16px;
+  text-align: center;
+}
+
+body.is-loading .container {
+  opacity: 0.55;
+  transition: opacity 0.1s;
+}
+
+.d2h-file-header {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+}
+
+.d2h-code-line,
+.d2h-code-side-line {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 12px;
+}

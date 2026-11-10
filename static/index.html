@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>local-diff</title>
+    <link rel="stylesheet" href="/static/vendor/highlight-github.css" />
+    <link rel="stylesheet" href="/static/vendor/diff2html.min.css" />
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="repo-name">
+        <svg class="logo" viewBox="0 0 16 16" aria-hidden="true">
+          <path d="M5 3.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm0 2.122a2.25 2.25 0 1 0-1.5 0v.878A2.25 2.25 0 0 0 5.75 8.5h1.5v2.128a2.251 2.251 0 1 0 1.5 0V8.5h1.5a2.25 2.25 0 0 0 2.25-2.25v-.878a2.25 2.25 0 1 0-1.5 0v.878a.75.75 0 0 1-.75.75h-4.5A.75.75 0 0 1 5 6.25v-.878ZM9 12.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"></path>
+        </svg>
+        <span class="app-name">local-diff</span>
+        <span class="slash">/</span>
+        <strong id="repo-name">loading…</strong>
+        <span id="working-badge" class="badge" hidden>working tree</span>
+      </div>
+      <div class="toolbar">
+        <div class="compare" aria-label="Compare branches">
+          <label for="base">base</label>
+          <select id="base" aria-label="Base branch"></select>
+          <span class="arrow" aria-hidden="true">←</span>
+          <label for="head">compare</label>
+          <select id="head" aria-label="Compare branch"></select>
+        </div>
+        <div class="segmented" role="group" aria-label="Diff view">
+          <button type="button" data-view="line-by-line">Unified</button>
+          <button type="button" data-view="side-by-side">Split</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <div id="summary" class="summary" hidden>
+        <span id="summary-text"></span>
+        <span id="summary-stats" class="stats"></span>
+      </div>
+      <div id="error" class="flash" role="alert" hidden></div>
+      <div id="empty" class="empty" hidden>No changes between these branches.</div>
+      <div id="diff"></div>
+    </main>
+
+    <script src="/static/vendor/diff2html-ui-slim.min.js"></script>
+    <script src="/static/app.js"></script>
+  </body>
+</html>
